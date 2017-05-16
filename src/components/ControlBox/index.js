@@ -25,9 +25,14 @@ class ControlBox extends Component {
         console.log('cbox meta.key', meta[key])
         if (controls[key]) {
           const unitText = meta[key].units || '';
-          returnValues.push(`${meta[key].label}: ${controls[key]}`);
-          returnValues.push(unitText)
-          returnValues.push(<br/>)
+          returnValues.push(
+            <span key={key}>
+              {meta[key].label}: {controls[key]}{unitText}
+              <br/>
+            </span>
+          );
+          // returnValues.push(unitText)
+          // returnValues.push(<br/>)
         }
       }
       console.log('cbox returns', returnValues)
